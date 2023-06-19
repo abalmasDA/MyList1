@@ -10,21 +10,23 @@
 public class Main {
 
     public static void main(String[] args) {
-        MyList<Integer> myList = new MyList<>();
-        myList.addElementToList(4234);
-        myList.addElementToList(888);
-        myList.addElementToList(777);
-        System.out.println(myList.getElementByIndex(2));
-        System.out.println(myList.getSizeElements());
 
-        MyList<String> myList1 = new MyList<>();
-        myList1.addElementToList("1");
-        myList1.addElementToList("2");
-        myList1.addElementToList("3");
-        myList1.addElementToList("4");
-        myList1.addElementToList("5");
-        System.out.println(myList1.getElementByIndex(3));
-        System.out.println(myList1.getSizeElements());
+        MyList<String> myList2 = new MyList<>();
+        myList2.addElementToList("1");
+        myList2.addElementToList("2");
+        myList2.addElementToList("3");
+        myList2.addElementToList("4");
+        myList2.addElementToList("5");
+        System.out.println(myList2.getSizeList());
+        System.out.println(myList2.getElementByIndex(4));
+
+        MyList<Integer> myList3 = new MyList<>();
+        myList3.addElementToList(45);
+        myList3.addElementToList(55);
+        myList3.addElementToList(1);
+        myList3.addElementToList(78);
+        System.out.println(myList3.getSizeList());
+        System.out.println(myList3.getElementByIndex(1));
 
     }
 }

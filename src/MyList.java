@@ -1,20 +1,47 @@
-import java.util.ArrayList;
 
-public class MyList<T> {
-    private ArrayList<T> object = new ArrayList<>();
 
-    public void addElementToList(T objectToAdd) {
-        object.add(objectToAdd);
+public class MyList<T> implements List {
+
+    private final int DEFAULT_CAPACITY_ARRAY = 0;
+
+    private final int CAPACITY_INCREMENT_ARRAY = 1;
+
+    private int sizeArray;
+
+    private int capacityArray;
+
+    private Object[] arrayData;
+
+
+    public MyList() {
+        capacityArray = DEFAULT_CAPACITY_ARRAY;
+        sizeArray = 0;
+        arrayData = new Object[capacityArray];
     }
 
-    public T getElementByIndex(int indexElement) {
-        T element = object.get(indexElement);
-        return element;
+    @Override
+    public void addElementToList(Object elementToAdd) {
+        if (sizeArray == capacityArray) {
+            capacityArray += CAPACITY_INCREMENT_ARRAY;
+            Object[] newArrayData = new Object[capacityArray];
+            for (int i = 0; i < sizeArray; i++) {
+                newArrayData[i] = arrayData[i];
+            }
+            arrayData = newArrayData;
+        }
+        arrayData[sizeArray] = elementToAdd;
+        sizeArray++;
+
     }
 
-    public int getSizeElements() {
-        int number = object.size();
-        return number;
+    @Override
+    public Object getElementByIndex(int indexElement) {
+        return arrayData[indexElement];
+    }
+
+    @Override
+    public int getSizeList() {
+        return sizeArray;
     }
 
 
